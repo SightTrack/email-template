@@ -1,1 +1,3 @@
-# email-template
+# Email Template
+
+## Run index.html
