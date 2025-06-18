@@ -284,9 +284,9 @@
 					<div class="summary-box">
 						<h2 class="summary-title">Volunteer Hours Request Summary</h2>
 						<p class="summary-text">
-							<strong>{{volunteer_name}}</strong> has submitted <strong>{{total_sightings}}</strong>
+							<strong>{{ volunteer_name }}</strong> has submitted <strong>{{ total_sightings }}</strong>
 							wildlife sighting(s) for volunteer hour credit.<br>
-							<strong>Total Calculated Hours: {{total_hours}}</strong>
+							<strong>Total Calculated Hours: {{ total_hours }}</strong>
 						</p>
 					</div>
 
@@ -295,59 +295,59 @@
 					<div class="info-grid">
 						<div class="info-column">
 							<h3 class="info-title">👤 Volunteer Information</h3>
-							<div class="info-item"><span class="info-label">Name:</span> {{volunteer_name}}</div>
-							<div class="info-item"><span class="info-label">Email:</span> {{volunteer_email}}</div>
-							<div class="info-item"><span class="info-label">Student ID:</span> {{student_id}}</div>
-							<div class="info-item"><span class="info-label">Institution:</span> {{institution_name}}
+							<div class="info-item"><span class="info-label">Name:</span> {{ volunteer_name }}</div>
+							<div class="info-item"><span class="info-label">Email:</span> {{ volunteer_email }}</div>
+							<div class="info-item"><span class="info-label">Student ID:</span> {{ student_id }}</div>
+							<div class="info-item"><span class="info-label">Institution:</span> {{ institution_name }}
 							</div>
-							<div class="info-item"><span class="info-label">Submission Date:</span> {{submission_date}}
+							<div class="info-item"><span class="info-label">Submission Date:</span> {{ submission_date
+								}}
 							</div>
 						</div>
 						<div class="info-column">
 							<h3 class="info-title">🦅 Sightings Information</h3>
-							<div class="info-item"><span class="info-label">Total Sightings:</span> {{total_sightings}}
+							<div class="info-item"><span class="info-label">Total Sightings:</span> {{ total_sightings
+								}}
 							</div>
-							<div class="info-item"><span class="info-label">Date Range:</span> {{date_range}}</div>
-							<div class="info-item"><span class="info-label">Locations:</span> {{locations_summary}}
+							<div class="info-item"><span class="info-label">Date Range:</span> {{ date_range }}</div>
+							<div class="info-item"><span class="info-label">Locations:</span> {{ locations_summary }}
 							</div>
-							<div class="info-item"><span class="info-label">Species Observed:</span> {{species_count}}
+							<div class="info-item"><span class="info-label">Species Observed:</span> {{ species_count }}
 								species</div>
-							<div class="info-item"><span class="info-label">Total Hours:</span> {{total_hours}}</div>
+							<div class="info-item"><span class="info-label">Total Hours:</span> {{ total_hours }}</div>
 						</div>
 					</div>
 
 					<!-- DETAILED SIGHTINGS -->
 					<h2 class="section-title">Sighting Details</h2>
 					<div style="background-color: #f8f9fa; padding: 20px; border-radius: 6px; margin: 20px 0;">
-						{{#each sightings}}
+						{% for sighting in sightings %}
 						<div style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #dee2e6;">
-							<div class="info-item"><span class="info-label">{{@index_plus_one}}.</span>
-								<strong>{{species_name}}</strong> - {{location}}
+							<div class="info-item"><span class="info-label">{{ loop.index }}.</span>
+								<strong>{{ sighting.species }}</strong> - {{ sighting.city }}
 							</div>
 							<div class="info-item" style="margin-left: 15px;"><span class="info-label">Date:</span>
-								{{observation_date}}</div>
+								{{ sighting.date }}</div>
 							<div class="info-item" style="margin-left: 15px;"><span class="info-label">Time:</span>
-								{{observation_time}}</div>
+								{{ sighting.time }}</div>
 							<div class="info-item" style="margin-left: 15px;"><span
 									class="info-label">Description:</span>
-								{{observation_notes}}</div>
-							<div class="info-item" style="margin-left: 15px;"><span class="info-label">Calculated
-									Hours:</span> {{calculated_hours}}</div>
+								{{ sighting.description }}</div>
 						</div>
-						{{/each}}
+						{% endfor %}
 					</div>
 
 					<!-- HOURS CALCULATION -->
 					<div class="hours-calculation">
 						<h3 class="calculation-title">📊 How Volunteer Hours Are Calculated</h3>
-						<div class="calculation-item">Base time allocation: {{base_time_per_sighting}} minutes per
+						<div class="calculation-item">Base time allocation: {{ base_time_per_sighting }} minutes per
 							wildlife sighting</div>
-						<div class="calculation-item">Description bonus: +{{description_bonus_per_chars}} minutes per
-							{{description_char_threshold}} characters of detailed observations</div>
+						<div class="calculation-item">Description bonus: +{{ description_bonus_per_chars }} minutes per
+							{{ description_char_threshold }} characters of detailed observations</div>
 						<div class="calculation-item">Travel time consideration: GPS distance between consecutive
-							sightings ({{average_travel_speed}} km/h average)</div>
+							sightings ({{ average_travel_speed }} km/h average)</div>
 						<div class="calculation-item">Time window restriction: Travel time only applies if sightings
-							occur within {{time_window_hours}} hours</div>
+							occur within {{ time_window_hours }} hours</div>
 						<div class="calculation-item">Quality assessment: Additional time for exceptional documentation
 							and scientific value</div>
 					</div>
@@ -384,9 +384,9 @@
 				</td>
 			</tr>
 
+			<!-- FOOTER BORDER -->
 			<tr>
-				<td class=" footer-border">
-				</td>
+				<td class="footer-border"></td>
 			</tr>
 
 		</table>
